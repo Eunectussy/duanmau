@@ -35,11 +35,13 @@ function loadall_sanpham_home(){
          $sp=pdo_query_one($sql);
         return $sp;
     }
-    function update_sanpham($id,$tensp,$giasp,$hinh,$mota){
+    function update_sanpham($iddm,$id,$tensp,$giasp,$hinh,$mota){
         if($hinh!=""){      
-        $sql="update  sanpham set  names='".$tensp."',price='".$giasp."',img='".$hinh."',mota='".$mota."' where id=".$id;
+        $sql="update  sanpham set iddanhmuc = '".$iddm."', names='".$tensp."',price='".$giasp."',img='".$hinh."',mota='".$mota."' where id=".$id;
         }
-        else  $sql="update  sanpham set  names='".$tensp."',price='".$giasp."',mota='".$mota."' where id=".$id;
+        else  $sql="update  sanpham set iddanhmuc = '".$iddm."', names='".$tensp."',price='".$giasp."',mota='".$mota."' where id=".$id;
         pdo_execute($sql);
     }
+    
+    
 ?>

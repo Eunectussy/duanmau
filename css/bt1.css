@@ -222,3 +222,34 @@ border: #666 1px solid;
     padding: 10px 20px;
     border: #ccc 1px solid;
 }
+
+.sidebar1 {
+    width: 250px;
+    background-color:w;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 20px;
+}
+.menu1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item1 {
+    margin-bottom: 10px;
+}
+
+.menu1 .menu-item1 a {
+    text-decoration: none;
+    color:black ;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight:  bolder;
+}
+.menu-item1s a:hover {
+    font-size: large;
+    color: red  ;
+}

@@ -40,7 +40,10 @@ if(isset( $_GET['act'])){
                             update_danhmuc($id,$tenloai);
                             $thongbao=" Cập Nhật Thành Công";
                         }
-                        $listdm= loadall_danhmuc();
+                        
+                        $listdm= loadall_danhmuc("",0);
+                        //  var_dump($listdm);
+                        // die;
                             include "danhmuc/list.php";
                             break; 
                            ///// //san pham//////////////
@@ -51,7 +54,7 @@ if(isset( $_GET['act'])){
                                     $tensp=$_POST['tensp'];
                                     $giasp=$_POST['giasp'];
                                     $mota=$_POST['mota'];
-                                    $fliename=$_FILES['hinh']['name'];
+                                    $hinh=$_FILES['hinh']['name'];
                                     $target_dir = "../upload/";
                                     $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
                                     if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
@@ -59,10 +62,11 @@ if(isset( $_GET['act'])){
                                       } else {
                                         // echo "Sorry, there was an error uploading your file.";
                                       }
-                                    insert_sanpham($tensp,$giasp,$fliename,$mota,$iddm);
+                                    insert_sanpham($tensp,$giasp,$hinh,$mota,$iddm);
                                     $thongbao='Nhập Thành Công';
                                 }
                                 $listdm= loadall_danhmuc();
+
                                 // var_dump($listdm);
                                 // die;
                                 include "sanpham/add.php";
@@ -97,13 +101,13 @@ if(isset( $_GET['act'])){
                                             include "sanpham/update.php";
                                         break; 
                                         case "updatesp":
-                                            if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
-                                                //  $iddm=$_POST['iddm'];
+                                            if(isset($_POST['capnhat'])&&($_POST['capnhat'])){          
                                                  $id=$_POST['id'];
+                                                 $iddm=$_POST['iddm'];
                                                 $tensp=$_POST['tensp'];
                                                 $giasp=$_POST['giasp'];
                                                 $mota=$_POST['mota'];
-                                                $fliename=$_FILES['hinh']['name'];
+                                                $hinh=$_FILES['hinh']['name'];
                                                 $target_dir = "../upload/";
                                                 $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
                                                 if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
@@ -112,10 +116,10 @@ if(isset( $_GET['act'])){
                                                     // echo "Sorry, there was an error uploading your file.";
                                                     
                                                   }
-                                              update_sanpham($id,$tensp,$giasp,$fliename,$mota);
+                                              update_sanpham($iddm,$id,$tensp,$giasp,$hinh,$mota);
                                                  $thongbao=" Cập Nhật Thành Công";
                                             }
-                                            // var_dump($update);
+                                            // var_dump(update_sanpham($iddm,$id,$tensp,$giasp,$hinh,$mota));
                                             // die;
                                             $listdm= loadall_danhmuc();
                                             $listsp= loadall_sanpham("",0);

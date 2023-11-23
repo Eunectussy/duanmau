@@ -1,36 +1,50 @@
-<div class="row">
-            <div class="row header"><H1> QUẢN LÍ LỌAI SẢN PHẨM</H1>  </div>
-        </div> <br> <br>
-        <form action="index.php?act=listsp" method="post">
-            <input type="text" name="kyw">
-            <select name="iddm">
-                <option value="0" selected>Tất cả</option>
-            <?php
+
+       <div class="table" >
+        <div class="title" ><h2 style="text-align: center;"> QUẢN LÍ SẢN PHẨM</h2></div>
+        <!--
+        search input 
+    -->
+    <form action="index.php?act=listsp" method="post">
+        <div class="container mt-4">
+          <div class="row">
+            <div class="col-md-4 custom-margin">
+              <!-- Ô nhập dữ liệu (input) chiếm toàn bộ chiều rộng của container -->
+              <input name="kyw" type="search" class="form-control" placeholder="Search...">
+            </div>
+            <div class="col-md-4 custom-margin">
+              <select name="iddm" class="form-select" aria-label="Default select example">
+                <option value="0" selected>Open this select menu</option>
+                <?php
                     foreach ($listdm as $danhmuc) {
                         extract($danhmuc);
                         echo'<option value="'.$id.'">'.$name.'</option>';
                     }
-                    ?>      
-            </select>
-            <input type="submit"name="listok" value="ok">
-           </form>
-      
-       <div class="row formconten">
-        <form action=""method="">
-            <div class="row mb formds">
-           
-                <table>
-                    <tr>
-                        <th></th>
-                        <th>MÃ LOẠI</th>
-                        <th>TÊN SẢN PHẨM</th>
-                        <th>Giá</th>
-                        <th>Hình</th>
-                        <th>Lượt xem</th>
-                        <th></th>
-                        
-                    </tr>
-                    <?php
+                    ?>    
+              </select>
+            </div>
+            <div class="col-md-4 custom-margin">
+              <input type="submit" name="listok" value="Search" class="btn btn-primary">
+            </div>
+          </div>
+        </div>
+      </form>
+    <a href="index.php?act=addsp">  <button type="button" class="btn btn-primary" style="margin-left: 80px; margin-top:30px;">Add</button></a>
+         <!--
+       table 
+    -->
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Mã loại</th>
+                <th scope="col">Name</th>
+                <th scope="col">Gía</th>
+                <th scope="col">Hình</th>
+                <th scope="col">Lượt xem</th>
+                <th scope="col">Hành động</th>
+              </tr>
+            </thead>
+            <tbody>
+            <?php
                         foreach ($listsp as $sanpham) {
                             extract($sanpham);
                             $suasp= "index.php?act=suasp&id=".$id;
@@ -42,22 +56,22 @@
                                 $img="không có hình";
                             }
                             echo  '<tr>
-                            <td><input type="checkbox" name="" id=""></td>
                             <td>'.$id.'</td>
                             <td>'.$names.' </td>
                             <td>'.$price.' </td>
                             <td>'.$img.' </td>
                             <td>'.$luotxem	.' </td>
-                            <td> <a href="'.$suasp.'"><input type="button" name="" id="" value="Sửa"></a>
-                            <a href="'.$xoasp.'"> <input type="button" name="" id="" value="Xóa"></a></td>
+                            <td> 
+                            <a href="'.$xoasp.'"><button type="button" class="btn btn-danger">Delete</button></a>
+                            <a href="'.$suasp.'"><button type="button" class="btn btn-success">Edit</button></a></td>
                         </tr>';
                         }   
                     ?>
-                </table>
-            </div>
-            <div class="row">
-               <a href="index.php?act=addsp"> <input type="button" value="Nhập thêm"></a>
-               <a href="index.php?act=listsp"> <input type="button" value="Danh sách"></a>
-            </div>
-        </form>
-       </div>
+            </tbody>
+          </table>
+    </div>
+</div>
+</div>
+</body>
+</html>
+       

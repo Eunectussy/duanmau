@@ -41,7 +41,8 @@
 <body>
   <div class="menu-container">
     <ul class="menu">
-        <img class="img" src="https://theme.hstatic.net/1000306633/1000891824/14/logo.png?v=587" alt="" witdh="200px "/>
+    
+     <a href="index.php"> <img class="img"  src="https://theme.hstatic.net/1000306633/1000891824/14/logo.png?v=587" alt="" witdh="200px "/> </a>
         <?php                         
                           foreach ($dm as $dm) {
                             extract($dm);
@@ -50,9 +51,26 @@
                           }
                             ?>
       <div class="a-right">
-      <li><a href="#">ĐĂNG NHẬP</a></li>
-      <li><a href="#">ĐĂNG KÍ</a></li>
-      <li><a href="#">GIỎ HÀNG </a></li>
+        <?php
+        if (isset($_SESSION['user'])) {
+          extract($_SESSION['user']);
+          ?>
+        <li><a href="">Xin chào <?=$user?></a></li>
+        <li><a href="index.php?act=thoat">THOÁT</a></li>
+        <li><a href="">GIỎ HÀNG </a></li>
+        <li><a href="index.php?act=edittk">TÀI KHOẢN </a></li>
+        <?php 
+        if ($role==1) {
+        ?>
+        <li><a href="admin/index.php?act=listdm">ADMIN </a></li>
+        <?php }?>
+          <?php
+        } else {
+        ?>
+      <li><a href="index.php?act=dangnhap">ĐĂNG NHẬP</a></li>
+      <li><a href="index.php?act=dangky">ĐĂNG KÍ</a></li>
+      <li><a href="">GIỎ HÀNG </a></li>
+      <?php }?>
     </div>
     </ul>
   </div>

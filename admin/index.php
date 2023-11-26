@@ -2,11 +2,54 @@
 include "../model/pdo.php";
 include "../model/danhmuc.php";
 include "../model/sanpham.php";
+include "../model/taikhoan.php";
 include "header.php";
 //controller
 if(isset( $_GET['act'])){
     $act=$_GET['act'];
     switch($act){
+        ///admin tài khoản
+        case 'listtk':
+            $listtk= loadall_taikhoan();
+            include "taikhoan/list.php";
+            break;  
+            case 'xoatk':
+                if(isset($_GET['id'])&& ($_GET['id']>0)){
+                    delete_taikhoan($_GET['id']);
+                }
+                $listtk= loadall_taikhoan();
+                include "taikhoan/list.php";
+                break; 
+                // case 'adduser':
+                //     if (isset($_POST['addtk']) && ($_POST['addtk'] )) {
+                //         $user=$_POST['user'];
+                //         $email=$_POST['email'];
+                //         $tel=$_POST['tel'];
+                //         $address=$_POST['address'];
+                //         $id=$_POST['id'];
+                //         $pass=$_POST['pass'];
+                //         insert_taikhoan($id,$user,$email,$address,$tel,$pass);
+                //         // $_SESSION['user']=checkuser($email,$pass);
+                //         $thongbao="thành công";
+                //     }
+                //     // $listtk= loadall_taikhoan();
+                //     include "taikhoan/list.php";
+                //     break;
+
+                //admin danh mục
+                case 'addtk':
+                    //kiem tra xem nguoi dung co kich vao hay khong
+                    if(isset($_POST['addtk'])&&($_POST['addtk'])){
+                                $user=$_POST['user'];
+                                $email=$_POST['email'];
+                                $address=$_POST['address'];
+                                $tel=$_POST['tel'];
+                                $pass=$_POST['pass'];
+                                insert_taikhoan($user,$email,$address,$tel,$pass);
+                                $thongbao="thành công";
+                    }
+                    include "taikhoan/add.php";
+                    break;
         case 'adddm':
             //kiem tra xem nguoi dung co kich vao hay khong
             if(isset($_POST['themmoi'])&&($_POST['themmoi'])){

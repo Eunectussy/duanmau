@@ -13,7 +13,8 @@ if (isset($img_path)) {
 // </div>';
 echo'   <div class="card">
 <div class="imgBx ">
-    <img src="'.$hinh.'" alt="nike-air-shoe" width="400px"/>
+<a href="'.$linksp.'"><img src="'.$hinh.'" alt="nike-air-shoe" width="400px"/></a>
+    
 </div>
 
 <div class="contentBx">

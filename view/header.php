@@ -36,6 +36,8 @@
   <title>Document</title>
   <link rel="stylesheet" href="css/home.css">
   <!-- Thư viện MDB CSS -->
+  <link href="assets/css/footer.css" rel="stylesheet" />
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.12.0/mdb.min.css" integrity="sha512-JhSBC+2/BBQPhd7+V9iDuhI5BH1U/paTTwKgKlP+vo5TJ6Y8WlP/xMXXpuvXkq59Y3oK6a5JJ5H9MCjn1Q8jAA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -81,6 +83,6 @@
     <div class="hinh"> <img src="https://theme.hstatic.net/1000306633/1000891824/14/block_home_category2_new.png?v=587" alt="" /></div>
     <div class="hinh"> <img src="https://theme.hstatic.net/1000306633/1000891824/14/block_home_category3_new.png?v=587" alt="" /></div>
   </div>
-  <div class="typewriter">
+  <div class="typewriter" style="margin-top: 50px;">
   <h1 id="text">STREETWEAR BRAND LIMITED</h1>
   </div>

@@ -29,6 +29,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/dashboard.css">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="assets/css/footer.css" rel="stylesheet" />
+ 
 </head>
 <body>
     <div class="container">

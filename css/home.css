@@ -205,6 +205,7 @@ font-family: 'Quicksand', sans-serif;
   
   .button-link:hover {
     background-color: black;
+    color: white;
     opacity: 1;
   }
   .card:hover .button-link {
@@ -222,6 +223,7 @@ font-family: 'Quicksand', sans-serif;
     margin: 10px;
     padding: 10px;
     box-sizing: border-box;
+    border: none;
 }
 .size h2 a{
     display: block;

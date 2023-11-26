@@ -11,7 +11,7 @@ if (isset($img_path)) {
 //     <p>'.$price.'</p>
 //     <a href="'.$linksp.'">'.$names.'</a>
 // </div>';
-echo'   <div class="card">
+echo'   <div class="card" style=" border:none;">
 <div class="imgBx ">
 <a href="'.$linksp.'"><img src="'.$hinh.'" alt="nike-air-shoe" width="400px"/></a>
     

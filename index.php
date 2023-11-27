@@ -96,6 +96,25 @@ if ((isset($_GET['act']))&&($_GET['act'])) {
                            session_unset();
                            header('location:index.php');
                             break;
+        
+            case 'viewcart':
+                include "view/giohang/viewcart.php";
+            break;
+            case 'addtocart':
+                if (isset($_POST['addtocart'])&&($_POST['addtocart'])){
+                    $id=$_POST['id'];
+                    $name=$_POST['name'];
+                    $img=$_POST['img'];
+                    $price=$_POST['price'];
+                    $soluong=1;
+                    $ttien=$soluong * $price;
+                    $spadd=[$id,$name,$img,$price,$soluong,$ttien];
+                    array_push($_SESSION['mycart'],$spadd);
+                }
+                include "view/giohang/viewcart.php";
+                break;
+
+
             case 'home':
                 include "view/home.php";
                 break;
